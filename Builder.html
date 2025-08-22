@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Peptide Stack Builder</title>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo + Hamburger in one row -->
+    <div class="logo-hamburger">
+      <a href="index.html" class="nav-logo">
+        <img src="peplogo.png" alt="Logo" class="logo">
+        Penn Peptide Dynamics
+      </a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="peptides.html" class="nav-item">Peptides</a></li>
+      <li><a href="stacks.html" class="nav-item">Stacks & Synergies</a></li>
+      <li><a href="builder.html" class="nav-item">Stack Builder</a></li>
+      <li><a href="about.html" class="nav-item">Glossary</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<script>
+ const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-item").forEach(link => {
+    if(link.getAttribute("href") === currentPage){
+      link.classList.add("active");
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // animate hamburger
+  });
+});
+</script>
+
+<h1>Peptide Stack Builder</h1>
+<p>Select any peptides below to build your custom stack.</p>
+
+<div id="peptide-buttons" class="button-container"></div>
+
+<div class="results">
+  <h2>Benefits</h2>
+  <div id="benefits" class="output"></div>
+
+  <h2>Potential Side Effects</h2>
+  <div id="side-effects" class="output"></div>
+
+  <h2>Synergies / Goal Support</h2>
+  <div id="synergies" class="output"></div>
+</div>
+
+<script>
+const peptides = [
+  {id:"bpc157",name:"BPC-157",category:"recovery",benefits:["Tissue repair","Reduced inflammation"],sideEffects:["Unknown long-term effects","Possible angiogenesis risks"],synergies:[{with:"tb500",effect:"Enhanced tendon + ligament healing"},{with:"ghkcu",effect:"Recovery + skin/vascular repair"}]},
+  {id:"tb500",name:"TB-500",category:"recovery",benefits:["Angiogenesis","Muscle recovery"],sideEffects:["Unknown tumorigenesis potential","Possible fatigue"],synergies:[{with:"bpc157",effect:"Enhanced tendon + ligament healing"},{with:"ghkcu",effect:"Tissue + skin regeneration"}]},
+  {id:"sermorelin",name:"Sermorelin",category:"muscle",benefits:["Stimulates GH release","Supports muscle building"],sideEffects:["Headaches","Injection site irritation"],synergies:[{with:"ipamorelin",effect:"Increased GH pulsatility"}]},
+  {id:"ipamorelin",name:"Ipamorelin",category:"muscle",benefits:["Stimulates GH release","Minimal cortisol effect"],sideEffects:["Possible water retention","Mild hunger"],synergies:[{with:"sermorelin",effect:"Increased GH pulsatility"},{with:"cjc1295",effect:"Amplified GH release → stronger fat loss & recovery"},{with:"igf1lr3",effect:"Enhanced hypertrophy + recovery"}]},
+  {id:"cjc1295",name:"CJC-1295",category:"fat",benefits:["Boosts GH secretion","Supports fat metabolism"],sideEffects:["Water retention","Joint pain"],synergies:[{with:"ipamorelin",effect:"Classic GH stack: fat loss + recovery"},{with:"ghrp6",effect:"Synergistic GH surge for fat metabolism"}]},
+  {id:"ghrp6",name:"GHRP-6",category:"fat",benefits:["Enhances GH secretion","May improve metabolism"],sideEffects:["Increased hunger","Possible prolactin increase"],synergies:[{with:"cjc1295",effect:"GH surge for metabolism & fat loss"}]},
+  {id:"ghkcu",name:"GHK-Cu",category:"skin",benefits:["Improves skin elasticity","Stimulates hair growth"],sideEffects:["Mild irritation","Unknown long-term risks"],synergies:[{with:"bpc157",effect:"Skin + tissue repair"},{with:"tb500",effect:"Skin regeneration + wound healing"},{with:"epithalon",effect:"Skin + anti-aging effects"}]},
+  {id:"epithalon",name:"Epithalon",category:"skin",benefits:["Anti-aging effects","Telomere protection"],sideEffects:["Unknown long-term risks","Limited human data"],synergies:[{with:"ghkcu",effect:"Skin + anti-aging effects"}]},
+  {id:"igf1lr3",name:"IGF-1 LR3",category:"muscle",benefits:["Supports hypertrophy","Muscle recovery"],sideEffects:["Hypoglycemia risk","Possible organ growth"],synergies:[{with:"ipamorelin",effect:"Enhanced hypertrophy + recovery"}]}
+];
+
+let selected = [];
+
+const container = document.getElementById("peptide-buttons");
+peptides.forEach(p => {
+  const btn = document.createElement("button");
+  btn.textContent = p.name;
+  btn.classList.add("peptide-btn");
+  btn.onclick = () => togglePeptide(p.id, btn);
+  container.appendChild(btn);
+});
+
+function togglePeptide(id, btn){
+  if(selected.includes(id)){
+    selected = selected.filter(x => x!==id);
+    btn.classList.remove("active");
+  } else {
+    selected.push(id);
+    btn.classList.add("active");
+  }
+  updateResults();
+}
+
+function updateResults() {
+  const chosen = peptides.filter(p => selected.includes(p.id));
+
+  const benefits = [...new Set(chosen.flatMap(p => p.benefits))];
+  const sideEffects = [...new Set(chosen.flatMap(p => p.sideEffects))];
+
+  document.getElementById("benefits").textContent = benefits.join(", ");
+  document.getElementById("side-effects").textContent = sideEffects.join(", ");
+
+  const synergySet = new Set();
+
+  for (let i = 0; i < chosen.length; i++) {
+    for (let j = i + 1; j < chosen.length; j++) {
+      const p1 = chosen[i], p2 = chosen[j];
+      const direct = p1.synergies.find(s => s.with === p2.id);
+
+      if (direct) {
+        synergySet.add(`Direct synergy: ${p1.name} + ${p2.name} → ${direct.effect}`);
+      } else {
+        const sharedGoals = p1.benefits.filter(b => p2.benefits.includes(b));
+        if (sharedGoals.length) {
+          synergySet.add(`Goal support: ${p1.name} + ${p2.name} → Both support ${sharedGoals.join(", ")}`);
+        } else {
+          synergySet.add(`Goal support: ${p1.name} + ${p2.name} → May complement each other by supporting ${p1.benefits.join(", ")} and ${p2.benefits.join(", ")}`);
+        }
+      }
+    }
+  }
+
+  const synergyContainer = document.getElementById("synergies");
+  synergyContainer.innerHTML = "";
+
+  if (synergySet.size) {
+    const ul = document.createElement("ul");
+    [...synergySet].forEach(s => {
+      const li = document.createElement("li");
+      li.textContent = s;
+      ul.appendChild(li);
+    });
+    synergyContainer.appendChild(ul);
+  } else {
+    synergyContainer.textContent = "No peptides selected";
+  }
+}
+</script>
+
+</body>
+</html>

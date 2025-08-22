@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Peptide Stacks & Synergies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo + Hamburger in one row -->
+    <div class="logo-hamburger">
+      <a href="index.html" class="nav-logo">
+        <img src="peplogo.png" alt="Logo" class="logo">
+        Penn Peptide Dynamics
+      </a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="peptides.html" class="nav-item">Peptides</a></li>
+      <li><a href="stacks.html" class="nav-item">Stacks & Synergies</a></li>
+      <li><a href="builder.html" class="nav-item">Stack Builder</a></li>
+      <li><a href="about.html" class="nav-item">Glossary</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h1>Peptide Stacks & Synergies</h1>
+<div class="stack-container" id="stack-cards"></div>
+
+<script>
+const peptides = [
+  { id:"bpc157", name:"BPC-157", category:"recovery", benefits:["Tissue repair","Reduced inflammation"], synergies:[{with:"tb500", effect:"Enhanced tendon + ligament healing"},{with:"ghkcu", effect:"Recovery + skin/vascular repair"}]},
+  { id:"tb500", name:"TB-500", category:"recovery", benefits:["Angiogenesis","Muscle recovery"], synergies:[{with:"bpc157", effect:"Enhanced tendon + ligament healing"},{with:"ghkcu", effect:"Tissue + skin regeneration"}]},
+  { id:"sermorelin", name:"Sermorelin", category:"muscle", benefits:["Stimulates GH release","Supports muscle building"], synergies:[{with:"ipamorelin", effect:"Increased GH pulsatility"}]},
+  { id:"ipamorelin", name:"Ipamorelin", category:"muscle", benefits:["Stimulates GH release","Minimal cortisol effect"], synergies:[{with:"sermorelin", effect:"Increased GH pulsatility"},{with:"cjc1295", effect:"Amplified GH release → stronger fat loss & recovery"},{with:"igf1lr3", effect:"Enhanced hypertrophy + recovery"}]},
+  { id:"cjc1295", name:"CJC-1295", category:"fat", benefits:["Boosts GH secretion","Supports fat metabolism"], synergies:[{with:"ipamorelin", effect:"Classic GH stack: fat loss + recovery"},{with:"ghrp6", effect:"Synergistic GH surge for fat metabolism"}]},
+  { id:"ghrp6", name:"GHRP-6", category:"fat", benefits:["Enhances GH secretion","May improve metabolism"], synergies:[{with:"cjc1295", effect:"GH surge for metabolism & fat loss"}]},
+  { id:"ghkcu", name:"GHK-Cu", category:"skin", benefits:["Improves skin elasticity","Stimulates hair growth"], synergies:[{with:"bpc157", effect:"Skin + tissue repair"},{with:"tb500", effect:"Skin regeneration + wound healing"},{with:"epithalon", effect:"Skin + anti-aging effects"}]},
+  { id:"epithalon", name:"Epithalon", category:"skin", benefits:["Anti-aging effects","Telomere protection"], synergies:[{with:"ghkcu", effect:"Skin + anti-aging effects"}]},
+  { id:"igf1lr3", name:"IGF-1 LR3", category:"muscle", benefits:["Supports hypertrophy","Muscle recovery"], synergies:[{with:"ipamorelin", effect:"Enhanced hypertrophy + recovery"}]}
+];
+
+const stacks = [
+  { name:"Recovery Stack", ids:["bpc157","tb500","ghkcu"], tag:"recovery" },
+  { name:"Muscle Building Stack", ids:["sermorelin","ipamorelin","igf1lr3"], tag:"muscle" },
+  { name:"Fat Reduction Stack", ids:["cjc1295","ghrp6","ipamorelin"], tag:"fat" },
+  { name:"Skin & Hair Care Stack", ids:["ghkcu","epithalon","bpc157"], tag:"skin" }
+];
+
+const container = document.getElementById("stack-cards");
+
+stacks.forEach(stack=>{
+  const card = document.createElement("div");
+  card.classList.add("stack-card");
+
+  const header = document.createElement("div");
+  header.classList.add("stack-header", stack.tag);
+  header.textContent = stack.name;
+
+  const body = document.createElement("div");
+  body.classList.add("stack-body");
+
+  // Peptide List
+  const peptideList = document.createElement("div");
+  peptideList.classList.add("peptide-list");
+  stack.ids.forEach(id=>{
+    const p = peptides.find(pe=>pe.id===id);
+    const span = document.createElement("span");
+    span.classList.add("peptide-item");
+    span.textContent = `${p.name} (${p.benefits.join(", ")})`;
+    peptideList.appendChild(span);
+  });
+
+  // Synergies
+  const synergyList = document.createElement("div");
+  synergyList.classList.add("synergy-list");
+  const synergiesSet = new Set();
+  for(let i=0;i<stack.ids.length;i++){
+    for(let j=i+1;j<stack.ids.length;j++){
+      const p1 = peptides.find(pe=>pe.id===stack.ids[i]);
+      const p2 = peptides.find(pe=>pe.id===stack.ids[j]);
+      const direct = p1.synergies.find(s=>s.with===p2.id);
+      if(direct){
+        synergiesSet.add({type:"direct", text:`${p1.name} + ${p2.name} → ${direct.effect}`});
+      } else {
+        const shared = p1.benefits.filter(b=>p2.benefits.includes(b));
+        if(shared.length){
+          synergiesSet.add({type:"goal", text:`${p1.name} + ${p2.name} → Both support ${shared.join(", ")}`});
+        } else {
+          synergiesSet.add({type:"goal", text:`${p1.name} + ${p2.name} → May complement each other (${p1.benefits.join(", ")} + ${p2.benefits.join(", ")})`});
+        }
+      }
+    }
+  }
+
+  [...synergiesSet].forEach(s=>{
+    const div = document.createElement("div");
+    div.classList.add("synergy-item", s.type==="direct"?"direct":"goal");
+    div.textContent = "• "+s.text;
+    synergyList.appendChild(div);
+  });
+
+  // Science Explanation
+  const scienceDiv = document.createElement("div");
+  scienceDiv.classList.add("science");
+
+  if(stack.name==="Recovery Stack"){
+    scienceDiv.innerHTML = "<strong>Science Behind This Stack:</strong> BPC-157 modulates inflammatory pathways and enhances angiogenesis. TB-500 promotes actin polymerization, aiding cell migration. Together they accelerate tissue repair. GHK-Cu supports vascular repair and collagen synthesis, improving overall recovery efficiency.";
+  } else if(stack.name==="Muscle Building Stack"){
+    scienceDiv.innerHTML = "<strong>Science Behind This Stack:</strong> Sermorelin and Ipamorelin stimulate pulsatile GH release, increasing IGF-1. IGF-1 LR3 amplifies hypertrophy and repair. Combined, they generate a coordinated anabolic response for muscle growth and recovery.";
+  } else if(stack.name==="Fat Reduction Stack"){
+    scienceDiv.innerHTML = "<strong>Science Behind This Stack:</strong> CJC-1295 increases GH secretion, GHRP-6 amplifies pulses for enhanced fat metabolism. Ipamorelin adds GH stimulation without cortisol spikes. Together, they promote fat loss while preserving lean mass.";
+  } else if(stack.name==="Skin & Hair Care Stack"){
+    scienceDiv.innerHTML = "<strong>Science Behind This Stack:</strong> GHK-Cu stimulates collagen production and angiogenesis. Epithalon protects telomeres and promotes cellular longevity. BPC-157 accelerates tissue repair. The combination improves skin elasticity, hair growth, and anti-aging outcomes.";
+  }
+
+  body.appendChild(peptideList);
+  body.appendChild(synergyList);
+  body.appendChild(scienceDiv);
+  card.appendChild(header);
+  card.appendChild(body);
+  container.appendChild(card);
+});
+
+// Highlight current page link
+  // Highlight current page link
+  const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-item").forEach(link => {
+    if(link.getAttribute("href") === currentPage){
+      link.classList.add("active");
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // animate hamburger
+  });
+});
+</script>
+
+</body>
+</html>

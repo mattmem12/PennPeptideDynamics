@@ -1,0 +1,661 @@
+/* --- Home Page --- */
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0,0,50,0.6), rgba(0,0,50,0.6)),
+              url("indeximage2.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 125px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  background: #3f51b5;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #2c3e9d;
+}
+
+/* Mission Section */
+.mission {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mission h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #3f51b5;
+}
+
+/* Featured Research Section */
+.featured-research {
+  background: #f0f2f5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.featured-research h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: #3f51b5;
+}
+
+.research-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.research-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+/* Stacking Info Section */
+.stacking-info {
+  background: #fff;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stacking-info h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #3f51b5;
+}
+
+.stacking-info ul {
+  list-style: disc inside;
+  font-size: 1.1em;
+  padding-left: 20px;
+}
+
+/* Call to Action Section */
+.cta {
+  background: #3f51b5;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.cta .btn {
+  background: #fff;
+  color: #3f51b5;
+}
+
+.cta .btn:hover {
+  background: #f0f0f0;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #bbb;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links li a {
+  color: #bbb;
+  font-size: 0.9em;
+  transition: 0.2s;
+}
+
+.footer-links li a:hover {
+  color: #fff;
+}
+
+
+
+/* General Page Styles */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 60px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Stack Card Styles */
+.stack-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.stack-card {
+  background: white;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  padding-bottom: 15px;
+}
+
+.stack-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.stack-header {
+  padding: 15px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.recovery { background: #8bc34a; }
+.muscle { background: #ff9800; }
+.fat { background: #f44336; }
+.skin { background: #3f51b5; }
+
+.stack-body {
+  padding: 15px;
+  font-size: 0.95em;
+  line-height: 1.4em;
+}
+
+.peptide-list {
+  margin: 5px 0 10px;
+}
+
+.peptide-item {
+  background: #f0f0f0;
+  padding: 5px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 3px;
+  font-size: 0.85em;
+}
+
+.synergy-list {
+  margin-top: 10px;
+}
+
+.synergy-item {
+  margin-bottom: 6px;
+}
+
+.direct {
+  font-weight: bold;
+   color: #3f51b5;
+}
+
+.goal {
+  color: #555;
+}
+
+.science {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-left: 4px solid #2196f3;
+  font-size: 0.9em;
+  line-height: 1.4em;
+}
+/* --- Peptides Page --- */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.peptide-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.peptide-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.peptide-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.peptide-category {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.peptide-description,
+.peptide-research,
+.peptide-history {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+
+.tag {
+  font-size: 0.8em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 5px;
+  color: white;
+}
+
+.recovery { background: #8bc34a; }
+.muscle { background: #ff9800; }
+.fat { background: #f44336; }
+.skin { background: #3f51b5; }
+
+/* --- Page Titles --- */
+
+/* --- Stack Builder --- */
+.peptide-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #ddd;
+}
+
+.peptide-btn.active {
+  background: #3f51b5;
+  color: white;
+}
+
+.peptide-card {
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+}
+
+.results {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+}
+
+.output {
+  margin: 5px 0;
+  line-height: 1.5em;
+}
+
+.synergy-line {
+  margin-bottom: 5px;
+}
+
+.tag {
+  font-size: 0.8em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 5px;
+  color: white;
+}
+
+.recovery { background: #8bc34a; }
+.muscle { background: #ff9800; }
+.fat { background: #f44336; }
+.skin { background: #3f51b5; }
+
+/* Optional: unify page heading styles */
+h1, h2 {
+  margin-bottom: 10px;
+  color: #3f51b5;
+  padding-top: 25px;
+
+}
+/* Research & Testing Cards */
+.research-section {
+ 
+  padding: 0px 20px;
+  color: #333;
+}
+
+.research-section h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Use same container flex as cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.research-card {
+ 
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.research-header {
+  background: #3f51b5; /* You can change color per step if desired */
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.research-body {
+  padding: 15px;
+  font-size: 0.95em;
+  line-height: 1.4em;
+  color: #555;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .research-card {
+    width: 100%;
+  }
+}
+
+
+
+/* Carousel Styles */
+.carousel {
+  position: relative;
+  width: 100%; /* Use 100% to fit within the parent element */
+  height: 400px;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 400px;
+  width: 100%;
+}
+
+.carousel-slide {
+  display: flex;
+  width: 100%; /* Ensure the slide container takes full width */
+  height: 400px;
+}
+
+.slide {
+  display: flex; /* Arrange image and text side by side */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slide-image {
+  flex: 1;
+  max-width: 50%; /* Image takes up half the slide */
+  height: 100%;
+  object-fit: contain;
+  border-right: 1px solid #ddd; /* Optional separator */
+  padding-right: 10px;
+}
+
+
+
+
+/* Arrow Buttons */
+
+button.prev {
+  left: 20px; /* Adjust for better placement */
+}
+
+button.next {
+  right: 20px; /* Adjust for better placement */
+}
+
+.featured-research .carousel button.prev,
+.featured-research .carousel button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background:#3f51b5; /* Matches your theme */
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    z-index: 10;
+    
+}
+
+.slide-text {
+  width: 90%; /* Use a larger percentage for better responsiveness */
+  max-width: 600px; /* Set a max width for larger screens */
+  padding: 10px; /* Reduce padding for smaller screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text away from arrows */
+  text-align: left; /* Ensure proper alignment */
+  font-size: 20px; /* Reduce font size for better fit on smaller screens */
+  color: #000;
+  position: relative; /* Add position relative for spacing */
+  z-index: 1; /* Ensure text stays above background */
+  margin: 0 auto; /* Center the text container */
+  font-family: 'Merriweather';
+}
+
+/* Additional media query for even smaller screens */
+@media (max-width: 600px) {
+  .slide-text {
+      font-size: 18px; /* Further reduce font size for mobile */
+      padding: 5px; /* Reduce padding even more */
+  }
+  .full-screen-image {
+    width: 100%; /* Ensure it takes up full width on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+    
+  }
+  .slide-image {
+  display: none; /* Hide the image entirely */
+  } 
+  #in-nav a {
+    margin: 5px; /* Reduce margin on smaller screens */
+    padding: 6px 10px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Optionally reduce font size for mobile */
+  }
+
+}
+/* --- Contact Page --- */
+.contact-card {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contact-card h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #3f51b5;
+}
+
+.contact-card p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.email-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.email-address {
+  font-family: monospace;
+  font-size: 1.1em;
+  background: #f5f5f5;
+  padding: 6px 10px;
+  border-radius: 6px;
+  word-break: break-word;
+}
+
+.contact-card .btn {
+  background: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: background 0.2s;
+}
+
+.contact-card .btn:hover {
+  background: #2c3e9d;
+}
+
+.contact-card .btn.secondary {
+  background: #eee;
+  color: #333;
+}
+
+.contact-card .btn.secondary:hover {
+  background: #ddd;
+}
+
+/* Form */
+#mailtoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+#mailtoForm label {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+#mailtoForm input,
+#mailtoForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+
+#mailtoForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#mailtoForm .btn {
+  align-self: flex-start;
+}
+
+#formNote {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 5px;
+}

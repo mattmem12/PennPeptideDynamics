@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Peptides Research Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo + Hamburger in one row -->
+    <div class="logo-hamburger">
+      <a href="index.html" class="nav-logo">
+        <img src="peplogo.png" alt="Logo" class="logo">
+        Penn Peptide Dynamics
+      </a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="peptides.html" class="nav-item">Peptides</a></li>
+      <li><a href="stacks.html" class="nav-item">Stacks & Synergies</a></li>
+      <li><a href="builder.html" class="nav-item">Stack Builder</a></li>
+      <li><a href="about.html" class="nav-item">Glosssary</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Research & Testing Approach Section -->
+<h1>Research and Testing</h1>
+<section id="research-methods" class="research-section">
+  <div class="cards-container">
+    <div class="research-card">
+      <div class="research-header">Literature Review</div>
+      <div class="research-body">
+        Comprehensive study of existing research to identify knowledge gaps and potential peptide applications.
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="research-header">Peptide Synthesis & Verification</div>
+      <div class="research-body">
+        Producing high-purity peptides and confirming structure and purity with HPLC and mass spectrometry.
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="research-header">In-Vitro Testing</div>
+      <div class="research-body">
+        Laboratory assays to measure biological activity, stability, and solubility of peptides.
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="research-header">Data Analysis & Modeling</div>
+      <div class="research-body">
+        Statistical and computational methods to evaluate peptide behavior and optimize protocols.
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<h1>Peptides</h1>
+
+
+<div class="cards-container" id="peptide-cards"></div>
+
+
+<script>
+  // Highlight current page link
+
+
+  const peptides = [
+    { id: "bpc157", name: "BPC-157", category: "recovery", description: "A peptide derived from stomach tissue, studied for tissue repair.", research: "Research focuses on tendon, ligament, and gut healing.", history: "Studied since the 1990s. Not FDA approved." },
+    { id: "tb500", name: "TB-500", category: "recovery", description: "Synthetic version of thymosin beta-4, promotes cell migration.", research: "Studied for wound healing, muscle recovery, and inflammation reduction.", history: "Studied since the early 2000s. Not FDA approved." },
+    { id: "sermorelin", name: "Sermorelin", category: "muscle", description: "Growth hormone-releasing hormone analog.", research: "Research for increasing GH secretion, supporting muscle building.", history: "Studied since the 1970s. FDA approved for GH deficiency." },
+    { id: "ipamorelin", name: "Ipamorelin", category: "muscle", description: "GHRP peptide that stimulates GH release with minimal cortisol effect.", research: "Used in studies for muscle growth and anti-aging.", history: "Studied since the 1990s. Not FDA approved." },
+    { id: "cjc1295", name: "CJC-1295", category: "fat", description: "GHRH analog that boosts growth hormone secretion.", research: "Explored for fat metabolism and recovery support.", history: "Studied since the 2000s. Not FDA approved." },
+    { id: "ghrp6", name: "GHRP-6", category: "fat", description: "Growth hormone-releasing peptide.", research: "Studied for metabolism improvement, appetite regulation, and GH secretion.", history: "Studied since the 1980s. Not FDA approved." },
+    { id: "ghkcu", name: "GHK-Cu", category: "skin", description: "Copper peptide known for tissue remodeling.", research: "Research includes skin repair, hair growth, and anti-inflammatory effects.", history: "Studied since the 1970s. Not FDA approved." },
+    { id: "epithalon", name: "Epithalon", category: "skin", description: "Tetrapeptide studied for telomere length and longevity.", research: "Investigated for anti-aging, telomere protection, and general cellular health.", history: "Studied since the 1980s. Not FDA approved." },
+    { id: "igf1lr3", name: "IGF-1 LR3", category: "muscle", description: "Long-acting insulin-like growth factor.", research: "Studied for hypertrophy, muscle repair, and recovery support.", history: "Studied since the 1990s. Not FDA approved." }
+  ];
+
+  const container = document.getElementById("peptide-cards");
+
+  peptides.forEach(p => {
+    const card = document.createElement("div");
+    card.classList.add("peptide-card");
+
+    const name = document.createElement("div");
+    name.classList.add("peptide-name");
+    name.textContent = p.name;
+
+    const category = document.createElement("div");
+    category.classList.add("peptide-category");
+    category.innerHTML = `Category: <span class="tag ${p.category}">${p.category}</span>`;
+
+    const desc = document.createElement("div");
+    desc.classList.add("peptide-description");
+    desc.textContent = `What it is: ${p.description}`;
+
+    const research = document.createElement("div");
+    research.classList.add("peptide-research");
+    research.textContent = `Why research: ${p.research}`;
+
+    const history = document.createElement("div");
+    history.classList.add("peptide-history");
+    history.textContent = `Status: ${p.history}`;
+
+    card.appendChild(name);
+    card.appendChild(category);
+    card.appendChild(desc);
+    card.appendChild(research);
+    card.appendChild(history);
+
+    container.appendChild(card);
+  });
+
+    // Highlight current page link
+  const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-item").forEach(link => {
+    if(link.getAttribute("href") === currentPage){
+      link.classList.add("active");
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // animate hamburger
+  });
+});
+</script>
+
+</body>
+</html>

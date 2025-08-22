@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>Contact • Penn Peptides</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+ 
+</head>
+<body>
+ <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="style.css">
+ 
+  <nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo + Hamburger in one row -->
+    <div class="logo-hamburger">
+      <a href="index.html" class="nav-logo">
+        <img src="peplogo.png" alt="Logo" class="logo">
+        Penn Peptide Dynamics
+      </a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="peptides.html" class="nav-item">Peptides</a></li>
+      <li><a href="stacks.html" class="nav-item">Stacks & Synergies</a></li>
+      <li><a href="builder.html" class="nav-item">Stack Builder</a></li>
+      <li><a href="about.html" class="nav-item">Glossary</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <main>
+    <!-- Contact Card -->
+    <section class="contact-card"
+             id="contact"
+            id="contact"
+         data-user="infopennlabs"
+         data-domain="gmail.com">
+      <h2>Get in touch</h2>
+      <p>If you have questions or want to collaborate, email me and I’ll get back to you.</p>
+
+      <div class="email-row">
+        <span class="email-address" id="emailText">(loading email…)</span>
+        <button class="btn secondary" id="copyBtn" type="button">Copy</button>
+        <a class="btn" id="mailLink" href="#">Email me</a>
+      </div>
+
+      <p class="hint">
+        Prefer a quick message? Use the form below—your mail app will open with your message pre-filled.
+      </p>
+
+      <!-- Mailto Form (no backend needed) -->
+      <form id="mailtoForm">
+        <div>
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Doe" />
+        </div>
+
+        <div>
+          <label for="fromEmail">Your Email</label>
+          <input id="fromEmail" name="fromEmail" type="email" placeholder="you@example.com" />
+        </div>
+
+        <div>
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Quick question" />
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message here…"></textarea>
+        </div>
+
+        <button class="btn" type="submit">Open Email App</button>
+        <div class="hint" id="formNote"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Penn Peptides Dynamics
+  </footer>
+
+  <!-- Minimal JS (kept inline for now) -->
+  <script>
+    (function(){
+      // Set year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Read email from data- attributes
+      const card = document.getElementById('contact');
+      const user = card.getAttribute('data-user');
+      const domain = card.getAttribute('data-domain');
+      const email = user + '@' + domain;
+
+      // Fill UI
+      const emailText = document.getElementById('emailText');
+      const mailLink = document.getElementById('mailLink');
+      const copyBtn  = document.getElementById('copyBtn');
+
+      emailText.textContent = email;
+      mailLink.href = 'mailto:' + email;
+
+      // Copy to clipboard
+      copyBtn.addEventListener('click', async () => {
+        try{
+          await navigator.clipboard.writeText(email);
+          copyBtn.textContent = 'Copied!';
+          setTimeout(()=> copyBtn.textContent = 'Copy', 1200);
+        }catch(e){
+          copyBtn.textContent = 'Press Ctrl/Cmd+C';
+          setTimeout(()=> copyBtn.textContent = 'Copy', 1400);
+        }
+      });
+
+      // Mailto form (opens default email client)
+      const form = document.getElementById('mailtoForm');
+      const note = document.getElementById('formNote');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name    = document.getElementById('name').value.trim();
+        const from    = document.getElementById('fromEmail').value.trim();
+        const subject = document.getElementById('subject').value.trim() || 'Website contact';
+        const message = document.getElementById('message').value.trim();
+
+        // Build body with simple formatting
+        const bodyLines = [
+          message || '(no message)',
+          '',
+          '--',
+          'From: ' + (name || '(anonymous)'),
+          'Reply-to: ' + (from || '(not provided)')
+        ].join('\n');
+
+        const mailto = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines)}`;
+
+        // Open the user's email app
+        window.location.href = mailto;
+
+        note.textContent = 'If your email app did not open, please email ' + email + ' directly.';
+      });
+    })();
+    const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-item").forEach(link => {
+    if(link.getAttribute("href") === currentPage){
+      link.classList.add("active");
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // animate hamburger
+  });
+});
+  </script>
+</body>
+</html>

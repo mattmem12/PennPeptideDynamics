@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Peptide Hub - Independent Peptide Research</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo + Hamburger in one row -->
+    <div class="logo-hamburger">
+      <a href="index.html" class="nav-logo">
+        <img src="peplogo.png" alt="Logo" class="logo">
+        Penn Peptide Dynamics
+      </a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="peptides.html" class="nav-item">Peptides</a></li>
+      <li><a href="stacks.html" class="nav-item">Stacks & Synergies</a></li>
+      <li><a href="builder.html" class="nav-item">Stack Builder</a></li>
+      <li><a href="about.html" class="nav-item">Glossary</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<script>
+  // Highlight current page link
+  const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-item").forEach(link => {
+    if(link.getAttribute("href") === currentPage){
+      link.classList.add("active");
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active'); // animate hamburger
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slideWrapper = document.querySelector('.carousel-slide');
+  const slides = document.querySelectorAll('.carousel-slide .slide');
+  let currentIndex = 0;
+
+  window.moveSlide = function(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+    else if (currentIndex >= slides.length) currentIndex = 0;
+
+    const offset = -currentIndex * 100;
+    slideWrapper.style.transform = `translateX(${offset}%)`;
+  };
+});
+</script>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Exploring Peptides, Unlocking Synergies</h1>
+    <p>Independent research into peptide combinations and their effects, leveraging university labs and advanced tools.</p>
+    <div class="hero-buttons">
+      <a href="peptides.html" class="btn">Explore Research</a>
+      <a href="builder.html" class="btn">Build Your Stack</a>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission">
+  <h2>Our Mission</h2>
+  <p>As a non-profit individual research initiative, our goal is to scientifically study peptides and the effects of stacking them. With access to local university laboratories and independent tools, we aim to advance the understanding of peptide synergies in health and performance.</p>
+</section>
+<!-- Featured Research Carousel -->
+<section class="featured-research">
+  <h2>Featured Research</h2>
+
+  <div class="carousel">
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <!-- First Slide -->
+        <div class="slide">
+          <img src="images/mslide.png" alt="Recovery image" class="slide-image">
+          <div class="slide-text">
+            <h3>Recovery Stack Study</h3>
+            <p class="small-text">Investigating how BPC-157 and TB-500 work together to accelerate tissue repair and recovery processes.</p>
+          </div>
+        </div>
+
+        <!-- Second Slide -->
+        <div class="slide">
+          <img src="images/mblend.png" alt="Muscle image" class="slide-image">
+          <div class="slide-text">
+            <h3>Muscle Building Synergies</h3>
+            <p class="small-text">Exploring GH-releasing peptides combined with IGF-1 LR3 to enhance hypertrophy and recovery.</p>
+          </div>
+        </div>
+
+        <!-- Third Slide -->
+        <div class="slide">
+          <img src="images/sblend.png" alt="Skin" class="slide-image">
+          <div class="slide-text">
+            <h3>Skin & Anti-Aging Research</h3>
+            <p class="small-text">Studying peptides like GHK-Cu and Epithalon for skin regeneration, telomere protection, and overall tissue health.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+</section>
+
+<!-- Why Stacking Matters Section -->
+<section class="stacking-info">
+  <h2>Why Peptide Stacking Matters</h2>
+  <ul>
+    <li>Combining peptides can produce synergistic effects beyond individual actions.</li>
+    <li>Understanding interactions helps optimize recovery, muscle growth, and cellular health.</li>
+    <li>Scientific stacking allows safer and more effective peptide applications in research.</li>
+  </ul>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+  <h2>Join Our Research Network</h2>
+  <p>If you are a scientist, student, or enthusiast interested in peptide research, collaborate with us to explore the next frontier of peptide science.</p>
+  <a href="contact.html" class="btn">Contact Us</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Peptide Hub. Independent Peptide Research Initiative.</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+
+</body>
+</html>

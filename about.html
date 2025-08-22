@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Glossary • Penn Peptide Dynamics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Use your existing styles -->
+  <link rel="stylesheet" href="nav.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Page-specific touch-ups (kept tiny) */
+    .glossary-hero { text-align:center; padding: 30px 20px; }
+    .glossary-tools { max-width: 900px; margin: 0 auto 20px; padding: 0 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center; }
+    .glossary-search { flex:1 1 320px; max-width: 560px; }
+    .glossary-search input { width:100%; padding:12px 14px; border:1px solid #ddd; border-radius:10px; font-size:16px; }
+    .alpha-nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+    .alpha-nav a { display:inline-block; padding:6px 10px; border-radius:8px; background:#f0f2f5; text-decoration:none; font-weight:600; color:#3f51b5; }
+    .glossary { max-width: 900px; margin: 10px auto 60px; padding: 0 16px; }
+    .letter-section { margin-top: 28px; }
+    .letter-heading { font-size: 1.6rem; color:#3f51b5; margin: 12px 0; }
+    dl { background:#fff; border-radius:12px; padding: 10px 16px; box-shadow: 0 4px 6px rgba(0,0,0,.06); }
+    dt { font-weight: 700; margin-top: 14px; }
+    dd { margin: 6px 0 12px 0; color:#444; line-height:1.5; }
+    .tagline { color:#555; max-width: 800px; margin:0 auto; }
+    .hidden { display:none !important; }
+    .hit { background: #fff8c5; border-radius: 6px; padding: 0 2px; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo-hamburger">
+      <a href="index.html" class="nav-logo">
+        <img src="peplogo.png" alt="Logo" class="logo">
+        Penn Peptide Dynamics
+      </a>
+      <div class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="peptides.html" class="nav-item">Peptides</a></li>
+      <li><a href="stacks.html" class="nav-item">Stacks & Synergies</a></li>
+      <li><a href="builder.html" class="nav-item">Stack Builder</a></li>
+      <li><a href="about.html" class="nav-item">Glossary</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+<header class="glossary-hero">
+  <h1>Glossary</h1>
+  <p class="tagline">Quick definitions of terms used across this site—covering navigation items, UI labels, and scientific vocabulary.</p>
+</header>
+
+<section class="glossary-tools">
+  <div class="glossary-search">
+    <input id="glossarySearch" type="search" placeholder="Search terms (e.g., angiogenesis, stack, hypertrophy)…" aria-label="Search glossary" />
+  </div>
+  <nav class="alpha-nav" aria-label="Glossary A–Z">
+    <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a>
+    <a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#J">J</a>
+    <a href="#K">K</a><a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a>
+    <a href="#P">P</a><a href="#Q">Q</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
+    <a href="#U">U</a><a href="#V">V</a><a href="#W">W</a><a href="#X">X</a><a href="#Y">Y</a><a href="#Z">Z</a>
+  </nav>
+</section>
+
+<main class="glossary" id="glossaryRoot">
+  <!-- A -->
+  <section class="letter-section" id="A">
+    <h2 class="letter-heading">A</h2>
+    <dl>
+      <div class="entry" data-term="About">
+        <dt id="about">About</dt>
+        <dd>Page describing background, mission, and context for the site or organization.</dd>
+      </div>
+      <div class="entry" data-term="Angiogenesis">
+        <dt id="angiogenesis">Angiogenesis</dt>
+        <dd>Formation of new blood vessels—important for tissue repair and recovery.</dd>
+      </div>
+      <div class="entry" data-term="Anabolic response">
+        <dt id="anabolic-response">Anabolic response</dt>
+        <dd>A physiological state that promotes building tissue (e.g., muscle growth, repair).</dd>
+      </div>
+      <div class="entry" data-term="Anti-aging">
+        <dt id="anti-aging">Anti-aging</dt>
+        <dd>Broad term for interventions aimed at preserving function or slowing age-related decline.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- B -->
+  <section class="letter-section" id="B">
+    <h2 class="letter-heading">B</h2>
+    <dl>
+      <div class="entry" data-term="BPC-157">
+        <dt id="bpc-157">BPC-157</dt>
+        <dd>Research peptide often discussed for tissue repair and inflammation modulation.</dd>
+      </div>
+      <div class="entry" data-term="Builder, Stack Builder">
+        <dt id="stack-builder">Builder / Stack Builder</dt>
+        <dd>Interactive tool to select peptides and view combined benefits, side effects, and synergies.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- C -->
+  <section class="letter-section" id="C">
+    <h2 class="letter-heading">C</h2>
+    <dl>
+      <div class="entry" data-term="Contact">
+      
+      <div class="entry" data-term="CJC-1295">
+        <dt id="cjc-1295">CJC-1295</dt>
+        <dd>Growth hormone–releasing hormone analog discussed for GH secretion and fat metabolism.</dd>
+      </div>
+      <div class="entry" data-term="Collagen synthesis">
+        <dt id="collagen-synthesis">Collagen synthesis</dt>
+        <dd>Production of collagen, a structural protein crucial for skin, joints, and connective tissue.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- E -->
+  <section class="letter-section" id="E">
+    <h2 class="letter-heading">E</h2>
+    <dl>
+      <div class="entry" data-term="Epithalon Epitalon">
+        <dt id="epithalon">Epithalon (Epitalon)</dt>
+        <dd>Peptide investigated for telomere biology and longevity-related effects.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- F -->
+  <section class="letter-section" id="F">
+    <h2 class="letter-heading">F</h2>
+    <dl>
+      <div class="entry" data-term="Fat metabolism">
+        <dt id="fat-metabolism">Fat metabolism</dt>
+        <dd>The body’s process of mobilizing and using fats for energy.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- G -->
+  <section class="letter-section" id="G">
+    <h2 class="letter-heading">G</h2>
+    <dl>
+      <div class="entry" data-term="GH Growth hormone Pulsatility">
+        <dt id="gh-pulsatility">GH / Pulsatility</dt>
+        <dd>Growth hormone released in natural bursts (pulses) rather than steadily.</dd>
+      </div>
+      <div class="entry" data-term="GHRP-6">
+        <dt id="ghrp-6">GHRP-6</dt>
+        <dd>Growth hormone–releasing peptide discussed for GH stimulation and metabolism.</dd>
+      </div>
+      <div class="entry" data-term="GHK-Cu">
+        <dt id="ghk-cu">GHK-Cu</dt>
+        <dd>Copper peptide associated with skin repair, hair growth, and tissue remodeling.</dd>
+      </div>
+      <div class="entry" data-term="Glossary">
+        <dt id="glossary">Glossary</dt>
+        <dd>This page—definitions for key terms used across the site.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- H -->
+  <section class="letter-section" id="H">
+    <h2 class="letter-heading">H</h2>
+    <dl>
+      <div class="entry" data-term="HPLC High-Performance Liquid Chromatography">
+        <dt id="hplc">HPLC (High-Performance Liquid Chromatography)</dt>
+        <dd>Analytical method used to assess peptide purity and composition.</dd>
+      </div>
+      <div class="entry" data-term="Hypertrophy">
+        <dt id="hypertrophy">Hypertrophy</dt>
+        <dd>Increase in muscle size through growth of muscle cells.</dd>
+      </div>
+      <div class="entry" data-term="Hair Skin">
+        <dt id="hair-skin">Hair / Skin</dt>
+        <dd>Site categories related to cosmetic or dermatologic outcomes (e.g., elasticity, growth).</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- I -->
+  <section class="letter-section" id="I">
+    <h2 class="letter-heading">I</h2>
+    <dl>
+      <div class="entry" data-term="IGF-1 LR3">
+        <dt id="igf1-lr3">IGF-1 LR3</dt>
+        <dd>Long-acting insulin-like growth factor variant discussed for muscle growth and recovery.</dd>
+      </div>
+      <div class="entry" data-term="In-Vitro testing">
+        <dt id="in-vitro">In-Vitro testing</dt>
+        <dd>Laboratory experiments performed outside living organisms (e.g., cell cultures).</dd>
+      </div>
+      <div class="entry" data-term="Ipamorelin">
+        <dt id="ipamorelin">Ipamorelin</dt>
+        <dd>GHRP class peptide noted for GH release with minimal cortisol effect.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- M -->
+  <section class="letter-section" id="M">
+    <h2 class="letter-heading">M</h2>
+    <dl>
+      <div class="entry" data-term="Mass spectrometry">
+        <dt id="mass-spec">Mass spectrometry</dt>
+        <dd>Technique to determine molecular mass/structure; used to verify peptide identity.</dd>
+      </div>
+      <div class="entry" data-term="Metabolism">
+        <dt id="metabolism">Metabolism</dt>
+        <dd>All chemical processes in the body; often referenced regarding fat or energy use.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- N -->
+
+
+  <!-- P -->
+  <section class="letter-section" id="P">
+    <h2 class="letter-heading">P</h2>
+    <dl>
+      <div class="entry" data-term="Peptide">
+        <dt id="peptide">Peptide</dt>
+        <dd>Short chain of amino acids; smaller than proteins; often has targeted biological actions.</dd>
+      </div>
+      <div class="entry" data-term="Pulsatility see GH">
+        <dt id="pulsatility">Pulsatility (see GH)</dt>
+        <dd>Pattern of release in bursts; commonly referenced for growth hormone.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- S -->
+  <section class="letter-section" id="S">
+    <h2 class="letter-heading">S</h2>
+    <dl>
+      <div class="entry" data-term="Sermorelin">
+        <dt id="sermorelin">Sermorelin</dt>
+        <dd>Growth hormone–releasing hormone analog used to stimulate GH release.</dd>
+      </div>
+      <div class="entry" data-term="Stack Stacks">
+        <dt id="stack">Stack / Stacks</dt>
+        <dd>Combinations of peptides designed to support a specific goal (e.g., recovery, fat loss).</dd>
+      </div>
+      <div class="entry" data-term="Synergy Synergies">
+        <dt id="synergy">Synergy / Synergies</dt>
+        <dd>When two or more agents together produce a greater or more comprehensive effect.</dd>
+      </div>
+      <div class="entry" data-term="Skin elasticity">
+        <dt id="skin-elasticity">Skin elasticity</dt>
+        <dd>Skin’s ability to stretch and return to shape; linked to collagen and overall skin health.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- T -->
+  <section class="letter-section" id="T">
+    <h2 class="letter-heading">T</h2>
+    <dl>
+      <div class="entry" data-term="TB-500">
+        <dt id="tb-500">TB-500</dt>
+        <dd>Synthetic peptide related to thymosin beta-4; discussed for healing and angiogenesis.</dd>
+      </div>
+      <div class="entry" data-term="Telomere Telomere protection">
+        <dt id="telomere">Telomere / Telomere protection</dt>
+        <dd>Chromosome end caps and efforts to preserve them, often associated with longevity research.</dd>
+      </div>
+      <div class="entry" data-term="Tissue regeneration Repair">
+        <dt id="tissue-regeneration">Tissue regeneration / Repair</dt>
+        <dd>Processes that restore damaged tissues, including rebuilding structure and function.</dd>
+      </div>
+    </dl>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Penn Peptide Dynamics
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar: active link + hamburger
+  (function(){
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-item').forEach(link=>{
+      if(link.getAttribute('href') === currentPage){
+        link.classList.add('active');
+      }
+    });
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if(hamburger && navLinks){
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+        hamburger.classList.toggle('active');
+      });
+    }
+  })();
+
+  // Glossary search (client-side filter + simple highlight)
+  (function(){
+    const input = document.getElementById('glossarySearch');
+    const entries = Array.from(document.querySelectorAll('.entry'));
+    const clearHighlights = (node) => {
+      node.querySelectorAll('.hit').forEach(el=>{
+        el.replaceWith(document.createTextNode(el.textContent));
+      });
+    };
+    const highlight = (el, query) => {
+      // Highlight in dt text only
+      const dt = el.querySelector('dt');
+      clearHighlights(dt);
+      if(!query) return;
+      const txt = dt.textContent;
+      const idx = txt.toLowerCase().indexOf(query.toLowerCase());
+      if(idx === -1) return;
+      const before = document.createTextNode(txt.slice(0, idx));
+      const mark = document.createElement('span');
+      mark.className = 'hit';
+      mark.textContent = txt.slice(idx, idx + query.length);
+      const after = document.createTextNode(txt.slice(idx + query.length));
+      dt.textContent = '';
+      dt.appendChild(before); dt.appendChild(mark); dt.appendChild(after);
+    };
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim();
+      const termsShown = new Set();
+
+      entries.forEach(e => {
+        const term = (e.getAttribute('data-term') || e.querySelector('dt')?.textContent || '').toLowerCase();
+        const def  = (e.querySelector('dd')?.textContent || '').toLowerCase();
+        const match = !q || term.includes(q.toLowerCase()) || def.includes(q.toLowerCase());
+        e.classList.toggle('hidden', !match);
+        highlight(e, q);
+        if(match){
+          // show parent letter section header if any match inside
+          const section = e.closest('.letter-section');
+          if(section) termsShown.add(section.id);
+        }
+      });
+
+      // Hide entire letter sections if no visible entries inside
+      document.querySelectorAll('.letter-section').forEach(sec=>{
+        const anyVisible = !!sec.querySelector('.entry:not(.hidden)');
+        sec.classList.toggle('hidden', !anyVisible);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
