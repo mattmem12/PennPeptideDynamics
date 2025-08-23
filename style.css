@@ -661,16 +661,26 @@ button.next {
 }
 
 .plus-list {
-  list-style: none; /* remove default bullets */
-  padding-left: 0em; /* space for the + */
+  list-style-type: none !important;  /* force remove bullets */
+  margin: 0;
+  padding: 0;
+}
+
+.plus-list li {
+  list-style-type: none !important;  /* extra safety */
+  position: relative;
+  padding-left: 20px;                /* space for the + */
 }
 
 .plus-list li::before {
-  content: "+";          /* plus sign */
-  color: blue;           /* make it blue */
-  font-weight: bold;     /* make it stand out */
-  margin-right: 0.5em;   /* space between + and text */
+  content: "+";                      /* insert the + */
+  color: blue;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
+
+
 
 
 
