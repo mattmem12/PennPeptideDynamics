@@ -178,7 +178,7 @@ body {
   font-family: Arial, sans-serif;
   background: #f2f2f2;
   margin: 0;
-  padding: 0px;
+  padding: 60px;
 }
 
 h1 {
@@ -533,7 +533,7 @@ button.next {
 }
 
 /* Additional media query for even smaller screens */
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .slide-text {
       font-size: 18px; /* Further reduce font size for mobile */
       padding: 5px; /* Reduce padding even more */
@@ -659,3 +659,4 @@ button.next {
   color: #666;
   margin-top: 5px;
 }
+
