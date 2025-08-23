@@ -138,19 +138,7 @@ function updateResults() {
   const synergyContainer = document.getElementById("synergies");
   synergyContainer.innerHTML = "";
 
-if (synergySet.size) {
-  const ul = document.createElement("ul");
-  ul.classList.add("plus-list"); // add this class
-  [...synergySet].forEach(s => {
-    const li = document.createElement("li");
-    li.textContent = s;
-    ul.appendChild(li);
-  });
-  synergyContainer.appendChild(ul);
-} else {
-  synergyContainer.textContent = "No peptides selected";
-}
-
+if (synergySet.size) { const ul = document.createElement("ul"); [...synergySet].forEach(s => { const li = document.createElement("li"); li.textContent = s; ul.appendChild(li); }); synergyContainer.appendChild(ul); } else { synergyContainer.textContent = "No peptides selected"; } }
 </script>
 
 </body>
