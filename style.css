@@ -660,3 +660,16 @@ button.next {
   margin-top: 5px;
 }
 
+.plus-list {
+  list-style: none; /* remove default bullets */
+  padding-left: 1.2em; /* space for the + */
+}
+
+.plus-list li::before {
+  content: "+";          /* plus sign */
+  color: blue;           /* make it blue */
+  font-weight: bold;     /* make it stand out */
+  margin-right: 0.5em;   /* space between + and text */
+}
+
+
